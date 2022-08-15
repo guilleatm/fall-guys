@@ -5,12 +5,16 @@ public class TestController : MonoBehaviour {
     
 	void Start() {
 		
-
-		if (Application.isEditor) return;
-
-
 		NetworkManager _networkManager = GetComponent<NetworkManager>();
-		_networkManager.StartClient();
+
+
+		if (Application.isEditor)
+			_networkManager.StartHost();
+		else
+			_networkManager.StartClient();
+
+
+		
 
 
 
